@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="content">
+        <h1 class="header">Have a Good Day!!!</h1>
+        <form class="form" method="POST">
+            {{Form.hidden_tag()}}
+            {{Form.category.label}}{{Form.category()}}
+            {{Form.submit()}}
+        </form>
+        {%if Data%}
+        {%for i in Data["articles"]%}
+            <a href="{{i['url']}}"><p>{{i["title"]}} - Date: {{i["publishedAt"][:10]}}</p></a>
+        {%endfor%}
+        {%endif%}
+    </div>
+    
+</body>
+</html>
